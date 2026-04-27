@@ -232,6 +232,15 @@ func (p *Plugin) Stop(ctx context.Context) error {
 		p.stopCh <- struct{}{}
 		p.eventBus = nil
 
+		// stop receiving tasks FIRST — otherwise Temporal Go pollers continue
+		// accepting tasks from the server while the PHP pools are being torn
+		// down, which causes worker_watcher_get_free_worker panics on every
+		// in-flight task. Reset() already uses this ordering; Stop() should
+		// match it.
+		for i := 0; i < len(p.temporal.workers); i++ {
+			p.temporal.workers[i].Stop()
+		}
+
 		// destroy worker pools
 		// WP
 		if p.wfP != nil {
@@ -241,11 +250,6 @@ func (p *Plugin) Stop(ctx context.Context) error {
 		// ACT pool
 		if p.actP != nil {
 			p.actP.Destroy(ctx)
-		}
-
-		// stop receiving tasks
-		for i := 0; i < len(p.temporal.workers); i++ {
-			p.temporal.workers[i].Stop()
 		}
 
 		// might be nil if the user didn't set the metrics
