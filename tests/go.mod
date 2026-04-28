@@ -1,6 +1,6 @@
 module tests
 
-go 1.25.7
+go 1.25.8
 
 require (
 	github.com/fatih/color v1.18.0
@@ -18,7 +18,7 @@ require (
 	github.com/roadrunner-server/status/v5 v5.1.9
 	github.com/stretchr/testify v1.11.1
 	github.com/temporalio/roadrunner-temporal/v5 v5.10.0
-	go.opentelemetry.io/otel/sdk v1.42.0
+	go.opentelemetry.io/otel/sdk v1.43.0
 	go.temporal.io/api v1.62.5
 	go.temporal.io/sdk v1.41.1
 	go.temporal.io/sdk/contrib/opentelemetry v0.7.0
@@ -78,11 +78,11 @@ require (
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
 	github.com/yusufpapurcu/wmi v1.2.4 // indirect
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
-	go.opentelemetry.io/otel v1.42.0 // indirect
-	go.opentelemetry.io/otel/metric v1.42.0 // indirect
-	go.opentelemetry.io/otel/trace v1.42.0 // indirect
+	go.opentelemetry.io/otel v1.43.0 // indirect
+	go.opentelemetry.io/otel/metric v1.43.0 // indirect
+	go.opentelemetry.io/otel/trace v1.43.0 // indirect
 	go.temporal.io/sdk/contrib/tally v0.2.0 // indirect
-	go.temporal.io/server v1.30.1 // indirect
+	go.temporal.io/server v1.30.4 // indirect
 	go.uber.org/atomic v1.11.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	go.yaml.in/yaml/v2 v2.4.4 // indirect
