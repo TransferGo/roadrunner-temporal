@@ -13,7 +13,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v6 # action page: <https://github.com/actions/setup-go>
         with:
-          go-version: stable
+          go-version: '1.26'
 
       - name: Run linter
         uses: golangci/golangci-lint-action@v9 # Action page: <https://github.com/golangci/golangci-lint-action>
